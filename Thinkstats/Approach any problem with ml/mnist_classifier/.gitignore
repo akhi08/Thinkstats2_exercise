@@ -1,0 +1,3 @@
+input/*.csv
+*.bin
+__pycache__/
