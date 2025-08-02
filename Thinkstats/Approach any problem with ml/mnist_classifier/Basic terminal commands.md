@@ -29,4 +29,4 @@ Run the script:
 - ./run_all.sh
 
 <!--  --> you can find the path  by running :
-<!-- find . -name train.py -->
+<!--  -->find . -name train.py
