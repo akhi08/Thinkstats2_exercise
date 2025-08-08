@@ -5,7 +5,7 @@ from sklearn import metrics
 from sklearn import preprocessing
 def run(fold):
     # load the full training data with folds
-    df = pd.read_csv("../input/cat_train_folds.csv")
+    df = pd.read_csv("input/cat-in-data/cat_train_folds.csv")
     # all columns are features except id, target and kfold columns
     features = [
     f for f in df.columns if f not in ("id", "target", "kfold")
@@ -42,9 +42,10 @@ def run(fold):
     # get roc auc score
     auc = metrics.roc_auc_score(df_valid.target.values, valid_preds)
     # print auc
-    print(auc)
+    print(f"Fold = {fold}, AUC = {auc}")
 if __name__ == "__main__":
 # run function for fold = 0
 # we can just replace this number and
 # run this for any fold
-run(0)
+    for fold_ in range(5):
+        run(fold_)
