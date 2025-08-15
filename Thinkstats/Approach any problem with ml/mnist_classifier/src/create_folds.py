@@ -1,19 +1,21 @@
-import pandas as pd
-from sklearn.model_selection import StratifiedKFold
+### PART -1
 
-if __name__=="__main__":
-    df=pd.read_csv('/Users/akhichoudhary/STATS/Thinkstats/Thinkstats2_exercise/Thinkstats/Approach any problem with ml/mnist_classifier/input/mnist_train.csv')
-    # Shuffle data
-    df=df.sample(frac=1).reset_index(drop=True)
-    # Create a new column for fold  assignment
-    df['kfold']=-1
-    # Initialize stratified k-fold (assuming 'label' column exists)
-    skf=StratifiedKFold(n_splits=5)
-    # assign folds
-    for fold,(train_idx,val_idx) in enumerate(skf.split(X=df,y=df.label)):
-        df.loc[val_idx,'kfold']=fold
-    #Save the new csv
-    df.to_csv("input/mnist_train_folds.csv", index=False)
+# import pandas as pd
+# from sklearn.model_selection import StratifiedKFold
+
+# if __name__=="__main__":
+#     df=pd.read_csv('/Users/akhichoudhary/STATS/Thinkstats/Thinkstats2_exercise/Thinkstats/Approach any problem with ml/mnist_classifier/input/mnist_train.csv')
+#     # Shuffle data
+#     df=df.sample(frac=1).reset_index(drop=True)
+#     # Create a new column for fold  assignment
+#     df['kfold']=-1
+#     # Initialize stratified k-fold (assuming 'label' column exists)
+#     skf=StratifiedKFold(n_splits=5)
+#     # assign folds
+#     for fold,(train_idx,val_idx) in enumerate(skf.split(X=df,y=df.label)):
+#         df.loc[val_idx,'kfold']=fold
+#     #Save the new csv
+#     df.to_csv("input/mnist_train_folds.csv", index=False)
 
 
 # StratifiedKFold ensures each fold has roughly the same percentage of each class label.
@@ -157,6 +159,10 @@ if __name__=="__main__":
 # train_df = df[df.kfold != 0]
 # valid_df = df[df.kfold == 0]
 
+#################################### PART-2 ###########################################################################
+
+
+
 
 ############### =====================================================this code is in approaching categorical value notebook 
 # ########/Users/akhichoudhary/STATS/Thinkstats/Thinkstats2_exercise/Thinkstats/Approach any problem with ml
@@ -184,3 +190,37 @@ if __name__=="__main__":
 #     # save the new csv with kfold column
 #     df.to_csv('input/cat-in-data/cat_train_folds.csv')
 
+
+##################################  PART-3 #####################################################
+
+
+import pandas as pd
+from sklearn.model_selection import StratifiedKFold
+
+if __name__=="__main__":
+    column_names = [
+    "age", "workclass", "fnlwgt", "education", "education_num",
+    "marital_status", "occupation", "relationship", "race", "sex",
+    "capital_gain", "capital_loss", "hours_per_week", "native_country", "income"
+    ]
+
+    url = "https://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.data"
+
+    df = pd.read_csv(
+        url,
+        header=None,
+        names=column_names,
+        sep=",\s*",
+        engine='python'
+        )
+    # Shuffle data
+    df=df.sample(frac=1).reset_index(drop=True)
+    # Create a new column for fold  assignment
+    df['kfold']=-1
+    # Initialize stratified k-fold (assuming 'label' column exists)
+    skf=StratifiedKFold(n_splits=5)
+    # assign folds
+    for fold,(train_idx,val_idx) in enumerate(skf.split(X=df,y=df.income)):
+        df.loc[val_idx,'kfold']=fold
+    #Save the new csv
+    df.to_csv("input/adult_folds.csv", index=False)
