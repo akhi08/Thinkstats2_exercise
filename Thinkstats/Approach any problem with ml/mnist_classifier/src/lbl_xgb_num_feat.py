@@ -3,6 +3,9 @@
 # create all combinations of degree two. Take a look at feature_engineering function
 # in the snippet below to know how this is done.
 
+# This is a very naïve way of creating features from categorical columns. One should
+# take a look at the data and see which combinations make the most sense. If you use
+# this method, you might end up creating a lot of features
 # ================== adult_dataset ============================================================================
 
 # lbl_xgb_num_feat.py
