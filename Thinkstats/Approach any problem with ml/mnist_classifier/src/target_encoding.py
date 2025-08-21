@@ -113,5 +113,10 @@ if __name__ == "__main__":
         run(df, fold_)
 
 
-
-
+# 🧠
+# -If you had taken the mean of the validation set and then used it to encode the training set, it would be like “peeking into the exam answers before writing the exam” → the model would see information from data it should not have access to during training.
+# - That leakage means:
+# - The train set would be influenced by future/hidden info.
+# - Model would show inflated performance on validation but fail on unseen/test data.
+# - This is classic data leakage → overfitting.
+# - 👉 Correct way: Always calculate encoding from train only, then apply to valid/test
