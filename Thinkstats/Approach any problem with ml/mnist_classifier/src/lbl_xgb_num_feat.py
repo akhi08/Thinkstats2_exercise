@@ -71,7 +71,7 @@ def run(fold):
         if col not in num_cols:
     # initialize LabelEncoder for each feature column
             lbl = preprocessing.LabelEncoder()
-    # fit label encoder on all data
+    # fit label encoder on all 
             lbl.fit(df[col])
     # transform all the data
             df.loc[:, col] = lbl.transform(df[col])
