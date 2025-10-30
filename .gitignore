@@ -1,2 +1,30 @@
 .DS_Store
 Thinkstats/Approach any problem with ml/mnist_classifier/input/*.csv
+# === Kaggle dataset & images ===
+data/
+datasets/
+input/
+train/
+train_png/
+train_images/
+test/
+*.dcm
+*.png
+*.jpg
+*.jpeg
+
+# === Models and exports ===
+*.pkl
+*.pt
+*.h5
+*.onnx
+models/
+checkpoints/
+
+# === Temporary & cache files ===
+__pycache__/
+*.pyc
+*.ipynb_checkpoints/
+.DS_Store
+
+
