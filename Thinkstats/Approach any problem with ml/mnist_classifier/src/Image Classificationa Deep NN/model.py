@@ -33,4 +33,7 @@ def get_model(pretrained):
         nn.Dropout(p=0.5),
         nn.Linear(in_features=2048, out_features=1),
     return model
-        
+
+
+
+# resnet18 with pretrained weights
