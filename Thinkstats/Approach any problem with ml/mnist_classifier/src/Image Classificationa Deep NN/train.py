@@ -12,13 +12,13 @@ from model import get_model
 if __name__ == "__main__":
     # location of train.csv and train_png folder
     # with all the png images
-    data_path = "/home/abhishek/workspace/siim_png/"
+    data_path = "/Users/akhichoudhary/STATS/Thinkstats/Thinkstats2_exercise/Thinkstats/Approach any problem with ml/data/siim-acr-pneumothorax-segmentation/siim_png/train_png/"
     # cuda/cpu device
     device = "cuda"
     # let's train for 10 epochs
     epochs = 10
     # load the dataframe
-    df = pd.read_csv(os.path.join(data_path, "train.csv"))
+    df = pd.read_csv(os.path.join(data_path, "//Users/akhichoudhary/STATS/Thinkstats/Thinkstats2_exercise/Thinkstats/Approach any problem with ml/data/siim-acr-pneumothorax-segmentation/siim_png/train.csv"))
     # fetch all image ids
     images = df.ImageId.values.tolist()
     # a list with image locations
